@@ -1,6 +1,7 @@
 // color //
 $green: rgb(9, 88, 9);
-$red: red;
+$red: rgb(209, 28, 28);
+$yellow: rgb(248, 196, 100);
 
 // Fonts //
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap"); // "Righteous", cursive;
@@ -12,6 +13,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  color: $yellow;
+  background-color: $red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,12 +23,16 @@ body {
   #timer {
     font-family: "Righteous", cursive;
     font-size: 36px;
+    color: $yellow;
     display: flex;
     justify-content: center;
     align-items: center;
 
     h2 {
       margin-top: 0;
+    }
+    #colon {
+      margin: 0 10px 44.82px 10px;
     }
   }
   #startButton {
@@ -35,5 +42,12 @@ body {
     border: none;
     margin: 20px;
     font-family: "Montserrat", sans-serif;
+    color: $yellow;
+    background-color: $green;
+    cursor: pointer;
+  }
+  #startButton:hover {
+    color: $green;
+    background-color: $yellow;
   }
 }

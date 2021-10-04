@@ -6,6 +6,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  color: #f8c464;
+  background-color: #d11c1c;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,12 +16,16 @@ body {
 body #timer {
   font-family: "Righteous", cursive;
   font-size: 36px;
+  color: #f8c464;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 body #timer h2 {
   margin-top: 0;
+}
+body #timer #colon {
+  margin: 0 10px 44.82px 10px;
 }
 body #startButton {
   width: 60px;
@@ -28,6 +34,13 @@ body #startButton {
   border: none;
   margin: 20px;
   font-family: "Montserrat", sans-serif;
+  color: #f8c464;
+  background-color: #095809;
+  cursor: pointer;
+}
+body #startButton:hover {
+  color: #095809;
+  background-color: #f8c464;
 }
 
 /*# sourceMappingURL=style.css.map */
