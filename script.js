@@ -1,24 +1,17 @@
-const timer = document.createElementbyId("timer");
+const timer = ((min) => {
+  let sec = min * 60;
 
-// timer function //
-let minute = 25;
-let second = 60;
+  const minute = document.getElementById("minute");
+  const second = document.getElementById("second");
+  const startButton = document.getElementById("startButton");
 
-const reduceSecond = () => {
-  second--;
-  console.log(`second:${second}`);
-  if (second <= 0) {
-    second = 60;
-  }
-};
+  const startTimer = () => {
+    setInterval(() => {
+      sec--;
+      minute.innerText = String((sec - (sec % 60)) / 60).padStart(2, 0);
+      second.innerText = String(sec % 60).padStart(2, 0);
+    }, 1000);
+  };
 
-const reduceMinute = () => {
-  minute--;
-  console.log(`minute:${minute}`);
-  if (minute <= 0) {
-    minute = 25;
-  }
-};
-
-const secondTimer = setInterval(reduceSecond, 1000);
-const minuteTimer = setInterval(reduceMinute, 60000);
+  startButton.onclick = startTimer;
+})(25);

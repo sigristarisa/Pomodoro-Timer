@@ -1,3 +1,39 @@
-#timer {
+// color //
+$green: rgb(9, 88, 9);
+$red: red;
+
+// Fonts //
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap"); // "Righteous", cursive;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"); // "Montserrat", sans-serif;
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #timer {
+    font-family: "Righteous", cursive;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+  #startButton {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: none;
+    margin: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
 }
