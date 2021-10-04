@@ -41,7 +41,7 @@ const timer = ((min) => {
     // pause the timer
     else {
       clearInterval(timerFunction);
-      startButton.innerText = "Restart";
+      startButton.innerText = "Continue";
       timerStart = !timerStart;
     }
   });

@@ -28,9 +28,9 @@ body #timer #colon {
   margin: 0 10px 44.82px 10px;
 }
 body #startButton {
-  width: 60px;
-  height: 60px;
-  border-radius: 60px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
   border: none;
   margin: 20px;
   font-family: "Montserrat", sans-serif;
