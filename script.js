@@ -172,3 +172,5 @@ const pomodoroTimer = ((flowMin, restMin) => {
     }
   });
 })(0.2, 0.1);
+
+// Finish up to add the long break !
