@@ -17,9 +17,10 @@ const pomodoroTimer = ((flowMin, restMin) => {
   minute.innerText = String((flowSec - (flowSec % 60)) / 60).padStart(2, 0);
   second.innerText = String(flowSec % 60).padStart(2, 0);
 
-  // ------------------------- FLOW ------------------------- //
-  if (startButton.className === "flow") {
-    startButton.addEventListener("click", () => {
+  startButton.addEventListener("click", () => {
+    // ---------------------- FLOW ---------------------- //
+
+    if (startButton.className === "flow") {
       // change the background color when the timer starts
       document.body.style.backgroundColor = "#095809";
 
@@ -37,7 +38,14 @@ const pomodoroTimer = ((flowMin, restMin) => {
           } else if (flowSec === 0) {
             flowCount++;
             clearInterval(flowTimer);
+            title.innerText = "Take a break!";
             startButton.className = "rest";
+            startButton.innerText = "Start";
+            minute.innerText = String((restSec - (restSec % 60)) / 60).padStart(
+              2,
+              0
+            );
+            second.innerText = String(restSec % 60).padStart(2, 0);
           }
         }, 100);
 
@@ -62,10 +70,53 @@ const pomodoroTimer = ((flowMin, restMin) => {
         startButton.innerText = "Continue";
         flowStart = !flowStart;
       }
-    });
-  } else if (startButton.className === "rest") {
-    startButton.addEventListener("click", () => {
-      console.log("hi from the rest");
-    });
-  }
-})(0.25, 0.25);
+    }
+    // ---------------------- REST ---------------------- //
+    else if (startButton.className === "rest") {
+      if (restStart) {
+        // set the interval to count down
+        restTimer = setInterval(() => {
+          if (restSec > 0) {
+            restSec--;
+            minute.innerText = String((restSec - (restSec % 60)) / 60).padStart(
+              2,
+              0
+            );
+            second.innerText = String(restSec % 60).padStart(2, 0);
+          } else if (restSec === 0) {
+            clearInterval(restTimer);
+            startButton.className = "flow";
+            title.innerText = "Let's get started!";
+            startButton.innerText = "Start";
+            minute.innerText = String((flowSec - (flowSec % 60)) / 60).padStart(
+              2,
+              0
+            );
+            second.innerText = String(flowSec % 60).padStart(2, 0);
+          }
+        }, 100);
+
+        // change the button color and its text
+        startButton.innerText = "Pause";
+        startButton.style.backgroundColor = "#d11c1c";
+        startButton.style.color = "#f8c464";
+        // change the button color when hovered
+        startButton.onmouseover = () => {
+          startButton.style.color = "#d11c1c";
+          startButton.style.backgroundColor = "#f8c464";
+        };
+        startButton.onmouseout = () => {
+          startButton.style.color = "#f8c464";
+          startButton.style.backgroundColor = "#d11c1c";
+        };
+        restStart = !restStart;
+      }
+      // pause the timer
+      else {
+        clearInterval(restTimer);
+        startButton.innerText = "Continue";
+        restStart = !restStart;
+      }
+    }
+  });
+})(0.5, 0.25);
