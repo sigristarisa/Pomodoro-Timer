@@ -137,6 +137,7 @@ const pomodoroTimer = ((flowMin, restMin) => {
             // change the background color when the timer starts
             document.body.style.backgroundColor = "#095809";
             timer.style.color = "#f8c464";
+            title.style.color = "#f8c464";
             // change the button color and its text
             startButton.innerText = "Start";
             startButton.style.backgroundColor = "#d11c1c";
