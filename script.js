@@ -9,6 +9,7 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
   const second = document.getElementById("second");
   const startButton = document.getElementById("startButton");
   const title = document.getElementById("title");
+  const tomato = document.getElementById("tomato");
 
   // booleans
   let flow = true;
@@ -43,7 +44,6 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
           // count how many flow the user had
           else if (flowSec === 0) {
             flowCount++;
-
             // if flow set is less than 4 ...
             if (flowCount < 4) {
               clearInterval(flowTimer);
@@ -149,4 +149,4 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
       }
     }
   });
-})(0.1, 0.1, 15);
+})(25, 5, 15);
