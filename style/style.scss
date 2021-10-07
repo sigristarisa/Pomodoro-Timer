@@ -7,6 +7,7 @@ $yellow: rgb(248, 196, 100);
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap"); // "Righteous", cursive;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"); // "Montserrat", sans-serif;
 
+// starting mode
 body {
   width: 100vw;
   height: 100vh;
@@ -50,5 +51,40 @@ body {
   #startButton:hover {
     color: $green;
     background-color: $yellow;
+  }
+}
+
+// flow mode
+.flowMode {
+  background-color: $green;
+
+  #startButton {
+    color: $yellow;
+    background-color: $red;
+  }
+
+  #startButton:hover {
+    color: $red;
+    background-color: $yellow;
+  }
+}
+
+// rest mode
+.restMode {
+  background-color: $yellow;
+  color: $green;
+
+  #timer {
+    color: $green;
+  }
+
+  #startButton {
+    color: $yellow;
+    background-color: $red;
+  }
+
+  #startButton:hover {
+    color: $yellow;
+    background-color: $green;
   }
 }

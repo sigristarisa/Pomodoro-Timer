@@ -1,7 +1,3 @@
-// green: "#095809"
-// red: "#d11c1c"
-// yellow: "#f8c464"
-
 const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
   // define minute to second
   let flowSec = flowMin * 60;
@@ -13,7 +9,6 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
   const second = document.getElementById("second");
   const startButton = document.getElementById("startButton");
   const title = document.getElementById("title");
-  const timer = document.getElementById("timer");
 
   // booleans
   let flow = true;
@@ -27,7 +22,9 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
 
   // make the button clickable
   startButton.addEventListener("click", () => {
+    document.body.className = "flowMode";
     startButton.innerText = "Pause";
+
     // ------------------ FLOW ------------------ //
     if (flow) {
       if (flowOn) {
@@ -50,7 +47,7 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
             // if flow set is less than 4 ...
             if (flowCount < 4) {
               clearInterval(flowTimer);
-
+              document.body.className = "restMode";
               title.innerText = "Take a break!";
               startButton.innerText = "Start";
 
@@ -92,6 +89,8 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
 
     // ---------------------- REST ---------------------- //
     else {
+      document.body.className = "restMode";
+
       if (restOn) {
         // set the interval to count down for the break
         restTimer = setInterval(() => {
@@ -105,7 +104,10 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
               second.innerText = String(restSec % 60).padStart(2, 0);
             } else if (restSec === 0) {
               clearInterval(restTimer);
+              document.body.className = "flowMode";
               title.innerText = "Let's get back to work!";
+              startButton.innerText = "Start";
+
               flowSec = flowMin * 60;
               minute.innerText = String(
                 (flowSec - (flowSec % 60)) / 60
@@ -127,6 +129,8 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
               flowCount = 0;
               clearInterval(restTimer);
               title.innerText = "Well rested? Let's start!";
+              startButton.innerText = "Start";
+
               flowSec = flowMin * 60;
               minute.innerText = String(
                 (flowSec - (flowSec % 60)) / 60
@@ -145,4 +149,4 @@ const pomodoroTimer = ((flowMin, restMin, longRestMin) => {
       }
     }
   });
-})(25, 5, 15);
+})(0.1, 0.1, 15);

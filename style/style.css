@@ -43,4 +43,32 @@ body #startButton:hover {
   background-color: #f8c464;
 }
 
+.flowMode {
+  background-color: #095809;
+}
+.flowMode #startButton {
+  color: #f8c464;
+  background-color: #d11c1c;
+}
+.flowMode #startButton:hover {
+  color: #d11c1c;
+  background-color: #f8c464;
+}
+
+.restMode {
+  background-color: #f8c464;
+  color: #095809;
+}
+.restMode #timer {
+  color: #095809;
+}
+.restMode #startButton {
+  color: #f8c464;
+  background-color: #d11c1c;
+}
+.restMode #startButton:hover {
+  color: #f8c464;
+  background-color: #095809;
+}
+
 /*# sourceMappingURL=style.css.map */
